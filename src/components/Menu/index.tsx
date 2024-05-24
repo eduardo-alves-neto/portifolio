@@ -6,7 +6,7 @@ export const Menu = () => {
     <Container>
       <Content>
         <Logo>
-          <img src="src/assets/logo.png" alt="logo" />
+          <img src="src/assets/react.svg" alt="logo" />
 
           <h1>Eduardo Neto</h1>
         </Logo>

@@ -8,7 +8,7 @@ export const Main = () => {
     <Container>
       <Content>
         <NavBar />
-        <Body></Body>
+        <Body />
       </Content>
     </Container>
   );

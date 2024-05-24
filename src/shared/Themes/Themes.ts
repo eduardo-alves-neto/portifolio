@@ -11,7 +11,7 @@ export type Theme = {
 
 export const themes: Theme = {
   light: {
-    background: "#ffffff",
+    background: "#f5f5f7",
     textBody: "#000000",
     paper: "#eaeced",
     shadow: "#FFF",
@@ -19,7 +19,7 @@ export const themes: Theme = {
   },
   dark: {
     background: "#23272f",
-    textBody: "#56b6cc",
+    textBody: "#ffffff",
     paper: "#2d333b",
     shadow: "#000000",
     secondary: "#2f4048",

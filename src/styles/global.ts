@@ -2,15 +2,13 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 
-:root{
-    --background: #23272f;
-    --text-body: #56b6cc;
-}
+
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* scrollbar-width: none; */
 }
 
 html{
@@ -22,6 +20,9 @@ html{
     }
 }
 
+
+
+
 body{
     background-color: ${(props) => props.theme.background};
     color: ${(props) => props.theme.textBody};
@@ -30,6 +31,7 @@ body{
         /* border: 1px solid red; */
 
     }
+ 
 
 }
 body, input, button, textarea{

@@ -30,7 +30,7 @@ export const Logo = styled.div`
   align-items: center;
   gap: 1rem;
   img {
-    width: 60px;
+    width: 70px;
     height: 60px;
     object-fit: cover;
   }

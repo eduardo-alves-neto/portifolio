@@ -3,21 +3,19 @@ import styled from "styled-components";
 export const Container = styled.div`
   height: 50px;
   width: 100%;
-  /* border: 1px solid green; */
 `;
 
 export const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
   height: 100%;
+  padding: 0 1rem;
   ul {
     display: flex;
     width: 90%;
     justify-content: space-around;
     gap: 1rem;
-    padding-right: 1rem;
     li {
       list-style: none;
     }
@@ -26,11 +24,11 @@ export const Content = styled.div`
 
 export const Configs = styled.div`
   display: flex;
-  padding: 0 1rem;
   align-items: center;
-  justify-content: space-between;
-  height: 90%;
-  width: 80%;
+  justify-content: center;
+  height: 80%;
+  width: 50%;
+  margin-left: 0.5rem;
   box-shadow: 0 0 5px 1px ${(props) => props.theme.shadow};
   border-radius: 0.5rem;
   background-color: ${(props) => props.theme.paper};
@@ -40,15 +38,9 @@ export const Configs = styled.div`
     margin-left: 0.5rem;
   }
   .linkButton {
-    display: flex;
-    padding: 0.5rem;
-    align-items: center;
-    justify-content: center;
-    margin-left: 0.5rem;
-    height: 2rem;
-    border: 1px solid ${(props) => props.theme.paper};
-    border-radius: 0.5rem;
-    background-color: ${(props) => props.theme.paper};
+    border: none;
+    width: 110%;
+    background-color: transparent;
     p {
       font-size: 1rem;
       color: ${(props) => props.theme.textBody};
