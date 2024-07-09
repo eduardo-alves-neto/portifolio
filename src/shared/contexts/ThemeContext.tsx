@@ -1,26 +1,48 @@
-import { ThemeProvider as StyledThemeProvider } from "styled-components";
-import React, { createContext, useState } from "react";
-import { ThemeName, themes } from "../Themes/Themes";
+import React, { createContext, useContext, useEffect } from "react";
+import { useLocalStorageState } from "../hooks/useLocalStorageState";
 
-interface ThemeContextProps {
-  theme: ThemeName;
-  toggleTheme: () => void;
+interface DarkModeContextType {
+  isDarkMode: boolean;
+  toggleDarkMode: () => void;
 }
 
-export const ThemeContext = createContext({} as ThemeContextProps);
+const DarkModeContext = createContext({} as DarkModeContextType);
 
-export const ThemeProvider = ({ children }: any) => {
-  const [theme, setTheme] = useState<ThemeName>("dark");
+function DarkModeProvider({ children }) {
+  const [isDarkMode, setIsDarkMode] = useLocalStorageState(
+    window.matchMedia("(prefers-color-scheme: dark)").matches,
+    "isDarkMode"
+  );
 
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
+  useEffect(
+    function () {
+      if (isDarkMode) {
+        document.documentElement.classList.add("dark-mode");
+        document.documentElement.classList.remove("light-mode");
+      } else {
+        document.documentElement.classList.add("light-mode");
+        document.documentElement.classList.remove("dark-mode");
+      }
+    },
+    [isDarkMode]
+  );
+
+  function toggleDarkMode() {
+    setIsDarkMode((isDark: boolean) => !isDark);
+  }
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <StyledThemeProvider theme={themes[theme]}>
-        {children}
-      </StyledThemeProvider>
-    </ThemeContext.Provider>
+    <DarkModeContext.Provider value={{ isDarkMode, toggleDarkMode }}>
+      {children}
+    </DarkModeContext.Provider>
   );
-};
+}
+
+function useDarkMode() {
+  const context = useContext(DarkModeContext);
+  if (context === undefined)
+    throw new Error("DarkModeContext was used outside of DarkModeProvider");
+  return context;
+}
+
+export { DarkModeProvider, useDarkMode };

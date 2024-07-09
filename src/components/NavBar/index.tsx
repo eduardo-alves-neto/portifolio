@@ -1,34 +1,28 @@
-import { useContext } from "react";
-import { Container, Content, Configs } from "./styles";
-import { ThemeContext } from "../../shared/contexts/ThemeContext";
 import React from "react";
+import { useDarkMode } from "../../shared/contexts/ThemeContext";
+import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi2";
+import ButtonIcon from "../Buttons/ButtonIcon";
 
 export const NavBar = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   return (
-    <Container>
-      <Content>
-        <ul>
-          <li>Ensino</li>
-          <li>Experiencia</li>
-          <li>Projetos</li>
-        </ul>
+    <>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+          height: "100vh",
+          border: "1px solid black",
+        }}
+      >
+        <h1>Navbar</h1>
 
-        <Configs>
-          <button className="icon" onClick={toggleTheme}>
-            <img
-              src={
-                theme === "light"
-                  ? "src/assets/icondark.png"
-                  : "src/assets/iconlight.png"
-              }
-            />
-          </button>
-          <button className="linkButton">
-            <p>Vamos conversar?</p>
-          </button>
-        </Configs>
-      </Content>
-    </Container>
+        <ButtonIcon onClick={toggleDarkMode}>
+          {isDarkMode ? <HiOutlineSun /> : <HiOutlineMoon />}
+        </ButtonIcon>
+      </div>
+    </>
   );
 };

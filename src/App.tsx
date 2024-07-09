@@ -1,16 +1,14 @@
-import { Main } from "./components/Main";
-import { Menu } from "./components/Menu";
-import { ThemeProvider } from "./shared/contexts/ThemeContext";
-import { GlobalStyle } from "./styles/global";
+import { NavBar } from "./components/NavBar";
+import { DarkModeProvider } from "./shared/contexts/ThemeContext";
+import GlobalStyles from "./styles/global";
 import React from "react";
 
 function App() {
   return (
-    <ThemeProvider>
-      <Menu />
-      <Main />
-      <GlobalStyle />
-    </ThemeProvider>
+    <DarkModeProvider>
+      <GlobalStyles />
+      <NavBar />
+    </DarkModeProvider>
   );
 }
 
