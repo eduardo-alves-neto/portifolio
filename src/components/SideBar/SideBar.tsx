@@ -1,10 +1,13 @@
 import styled from "styled-components";
 import { useSideBar } from "../../shared/contexts/SideBarContext";
-import React from "react";
-import AnimatedCursor from "react-animated-cursor";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import { IoIosArrowBack } from "react-icons/io";
+import ButtonIcon from "../Buttons/ButtonIcon";
+import { useDarkMode } from "../../shared/contexts/ThemeContext";
+import logoDarkMode from "../../assets/logoDarkMode.png";
+import logoLightMode from "../../assets/logoLightMode.png";
 
 interface SidebarProps {
   isOpen?: boolean;
@@ -32,6 +35,9 @@ const SidebarContent = styled.div`
     align-items: center;
     justify-content: center;
     height: 250px;
+    img {
+      width: 100%;
+    }
   }
   .body {
     height: 500px;
@@ -39,15 +45,42 @@ const SidebarContent = styled.div`
     align-items: center;
     justify-content: center;
     gap: 30px;
-    flex-direction: column;
-    a {
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: var(--color-grey-800);
-      text-decoration: none;
-      transition: 0.3s;
-      &:hover {
-        color: var(--color-primary-500);
+    flex-direction: row;
+    .option-sideBar {
+      width: 90%;
+      height: 99%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 50px;
+      a {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: var(--color-grey-800);
+        text-decoration: none;
+        transition: 0.3s;
+        &:hover {
+          color: var(--color-primary-500);
+        }
+      }
+    }
+
+    .toogle-sideBar {
+      display: none;
+      @media (max-width: 780px) {
+        display: block;
+        width: 9%;
+        height: 100px;
+        display: flex;
+        padding: 10px;
+        align-items: center;
+        justify-content: center;
+        svg {
+          width: 2.5rem;
+          height: 3rem;
+          color: var(--color-brand-300);
+        }
       }
     }
   }
@@ -81,40 +114,60 @@ const SidebarContent = styled.div`
 `;
 
 export const Sidebar = () => {
-  const { isSidebarOpen } = useSideBar();
+  const { isSidebarOpen, toggleSidebar } = useSideBar();
+  const { isDarkMode } = useDarkMode();
+  const imageUrl = isDarkMode ? logoDarkMode : logoLightMode;
 
   return (
     <SidebarContainer isOpen={isSidebarOpen}>
-      <AnimatedCursor
+      {/* <AnimatedCursor
         innerSize={8}
         outerSize={8}
         color="193, 11, 111"
         outerAlpha={0.2}
         innerScale={0.7}
         outerScale={5}
-      />
+      /> */}
       <SidebarContent>
         <div className="top">
-          <h1>Logo</h1>
+          <img src={imageUrl} />
         </div>
 
         <div className="body">
-          <a>Home</a>
-          <a>Sobre</a>
-          <a>Serviços</a>
-          <a>Portifolio</a>
-          <a>Contato</a>
+          <div className="option-sideBar">
+            <a>Home</a>
+            <a>Sobre</a>
+            <a>Serviços</a>
+            <a>Portifolio</a>
+            <a>Contato</a>
+          </div>
+          <div className="toogle-sideBar">
+            <ButtonIcon
+              isNotHovered
+              onClick={() => {
+                toggleSidebar();
+              }}
+            >
+              <IoIosArrowBack />
+            </ButtonIcon>
+          </div>
         </div>
 
         <div className="footer">
           <div>
-            <a href="#">
+            <a
+              href="https://www.instagram.com/eduardo_batista_1/?hl=pt-br"
+              target="_blank"
+            >
               <FaInstagram />
             </a>
-            <a href="#">
+            <a
+              href="https://www.linkedin.com/in/eduardo-alves-0104042ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              target="_blank"
+            >
               <FaLinkedinIn />
             </a>
-            <a href="#">
+            <a href="https://github.com/eduardo-alves-neto">
               <FaGithub />
             </a>
           </div>

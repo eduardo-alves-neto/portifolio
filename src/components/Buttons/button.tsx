@@ -1,8 +1,10 @@
+import { ButtonHTMLAttributes } from "react";
 import styled, { css } from "styled-components";
 
-interface ButtonProps {
-  size: "small" | "medium" | "large";
-  variation: "primary" | "secondary" | "danger";
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  url?: string;
+  variation?: "primary" | "danger" | "secondary";
+  size?: "small" | "medium" | "large";
 }
 
 const sizes = {
@@ -24,8 +26,10 @@ const variations = {
   primary: css`
     color: var(--color-blue-100);
     background-color: var(--color-blue-700);
+    cursor: pointer;
 
     &:hover {
+      color: var(--color-blue-50);
       background-color: var(--color-blue-800);
     }
   `,
@@ -51,8 +55,8 @@ const Button = styled.button<ButtonProps>`
   border: none;
   border-radius: var(--border-radius-sm);
   box-shadow: var(--shadow-sm);
-  ${(props) => sizes[props.size]}
-  ${(props) => variations[props.variation]}
+  ${(props) => sizes[props.size ?? "small"]}
+  ${(props) => variations[props.variation ?? "primary"]}
 `;
 
 Button.defaultProps = {

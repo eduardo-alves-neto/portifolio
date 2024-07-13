@@ -15,8 +15,10 @@ const GlobalStyles = createGlobalStyle`
   --color-grey-800: #1f2937;
   --color-grey-900: #111827;
 
+  --color-blue-50: #eef2ff;
   --color-blue-100: #e0f2fe;
   --color-blue-700: #0369a1;
+  --color-blue-800: #075985;
   --color-green-100: #dcfce7;
   --color-green-700: #15803d;
   --color-yellow-100: #fef9c3;
@@ -143,7 +145,6 @@ input:disabled {
 }
 
 input:focus,
-button:focus,
 textarea:focus,
 select:focus {
   outline: 2px solid var(--color-brand-600);

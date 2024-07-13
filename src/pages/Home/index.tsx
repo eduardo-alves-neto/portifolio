@@ -1,71 +1,21 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
 import Button from "../../components/Buttons/button";
-
-interface ContentProps {
-  width?: string;
-  height?: string;
-}
-
-const Container = styled.div`
-  display: flex;
-  padding-top: 90px;
-  padding-left: 90px;
-  flex-wrap: wrap-reverse;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  @media (max-width: 1000px) {
-    padding-top: 0px;
-    & > div {
-      width: 100% !important;
-    }
-    & > div {
-      h1 {
-        font-size: 3rem;
-      }
-    }
-  }
-`;
-
-const Content = styled.div<ContentProps>`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
-  padding: 10px;
-  min-width: 300px;
-
-  h1 {
-    font-size: 6rem;
-    font-weight: 700;
-    span {
-      color: var(--color-grey-400);
-    }
-  }
-  .buttons-content {
-    display: flex;
-    justify-content: left;
-    margin-top: 100px;
-    gap: 10px;
-  }
-  .img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
-  .card-contact {
-    border-left: 8px solid var(--color-yellow-700);
-    border-radius: 8px;
-    margin-top: 80px;
-    padding: 10px;
-    padding-left: 10px;
-    p {
-      font-size: 1.7rem;
-      color: var(--color-grey-500);
-    }
-  }
-`;
+import { alternativeTexts } from "./initialValues";
+import { AnimatedText, Container, Content } from "./styled";
 
 export const Home = () => {
+  const [actualText, setActualText] = useState(alternativeTexts[0]);
+  let indiceAtual = 0;
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      indiceAtual = (indiceAtual + 1) % alternativeTexts.length;
+      setActualText(alternativeTexts[indiceAtual]);
+    }, 3000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <Container>
       <Content width="60%" height="600px">
@@ -73,27 +23,39 @@ export const Home = () => {
           <h1>
             Oi, eu sou o <span>Eduardo!</span>
             <br />
-            Desenvolvedor web
+            <AnimatedText>{actualText}</AnimatedText>
             <br />
           </h1>
         </div>
         <div className="buttons-content">
           <Button size="large" variation="primary">
-            Baixar CV
+            <a
+              href="https://docs.google.com/document/d/1vYLG_41xy-8NGPmX9HeG441e_TIvuC6Y0kHZdbk6o9M/export?format=pdf"
+              download={"Eduardo Martins - CV.pdf"}
+            >
+              Baixar CV
+            </a>
           </Button>
           <Button size="large" variation="secondary">
-            Vamos conversar?
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/eduardo-alves-0104042ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            >
+              Vamos conversar?
+            </a>
           </Button>
         </div>
 
         <div className="card-contact">
-          <p>eduardoalvesmartinsneto@gmail.com</p>
-          <p>(11) 9 9999-9999</p>
+          <a href="mailto:eduardoalvesmartinsneto@gmail.com">
+            eduardoalvesmartinsneto@gmail.com
+          </a>
+          <p>(83) 9 9960-3051</p>
         </div>
       </Content>
       <Content width="40%">
         <div className="img">
-          <img src="/src/assets/image.png" alt="Desenvolved" />
+          <img src="/src/assets/image3.png" alt="Desenvolved" />
         </div>
       </Content>
     </Container>
