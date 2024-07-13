@@ -13,12 +13,11 @@ const Container = styled.div`
   justify-content: end;
   width: 100%;
   height: 40px;
-  border: 1px solid red;
   top: 0;
   margin-bottom: 25px;
   margin-top: 5px;
   padding: 20px;
-  @media (min-width: 765px) {
+  @media (min-width: 768px) {
     .sidebar-toggle-btn {
       display: none;
     }
