@@ -8,6 +8,7 @@ import ButtonIcon from "../Buttons/ButtonIcon";
 import { useDarkMode } from "../../shared/contexts/ThemeContext";
 import logoDarkMode from "../../assets/logoDarkMode.png";
 import logoLightMode from "../../assets/logoLightMode.png";
+import { useEffect, useState } from "react";
 
 interface SidebarProps {
   isOpen?: boolean;
@@ -21,7 +22,7 @@ const SidebarContainer = styled.div<SidebarProps>`
   background-color: var(--color-grey-100);
   overflow-x: hidden;
   transition: 0.3s;
-  z-index: 1000;
+  z-index: 12;
   @media (max-width: 780px) {
     left: ${(props) => (props.isOpen ? 0 : -360)}px;
   }
@@ -116,21 +117,32 @@ const SidebarContent = styled.div`
 export const Sidebar = () => {
   const { isSidebarOpen, toggleSidebar } = useSideBar();
   const { isDarkMode } = useDarkMode();
-  const imageUrl = isDarkMode ? logoDarkMode : logoLightMode;
+  const [imageUrl, setImageUrl] = useState(
+    isDarkMode ? logoDarkMode : logoLightMode
+  );
+  const [imageOpacity, setImageOpacity] = useState(1);
 
+  useEffect(() => {
+    setImageOpacity(0);
+
+    const timeoutId = setTimeout(() => {
+      setImageUrl(isDarkMode ? logoDarkMode : logoLightMode);
+      setImageOpacity(1);
+    }, 300);
+
+    return () => clearTimeout(timeoutId);
+  }, [isDarkMode]);
   return (
     <SidebarContainer isOpen={isSidebarOpen}>
-      {/* <AnimatedCursor
-        innerSize={8}
-        outerSize={8}
-        color="193, 11, 111"
-        outerAlpha={0.2}
-        innerScale={0.7}
-        outerScale={5}
-      /> */}
       <SidebarContent>
         <div className="top">
-          <img src={imageUrl} />
+          <img
+            src={imageUrl}
+            style={{
+              opacity: imageOpacity,
+              transition: "opacity 0.3s ease",
+            }}
+          />
         </div>
 
         <div className="body">
