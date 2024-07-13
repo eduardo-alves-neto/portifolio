@@ -1,6 +1,5 @@
 import { DarkModeProvider } from "./shared/contexts/ThemeContext";
 import GlobalStyles from "./styles/global";
-import React from "react";
 import { NavBar } from "./components/NavBar/NavBar";
 import { SideBarProvider } from "./shared/contexts/SideBarContext";
 import { LayoutDefault } from "./shared/layouts/LayoutDefault";

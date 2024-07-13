@@ -8,7 +8,7 @@ interface DarkModeContextType {
 
 const DarkModeContext = createContext({} as DarkModeContextType);
 
-function DarkModeProvider({ children }) {
+function DarkModeProvider({ children }: { children: React.ReactNode }) {
   const [isDarkMode, setIsDarkMode] = useLocalStorageState(
     window.matchMedia("(prefers-color-scheme: dark)").matches,
     "isDarkMode"

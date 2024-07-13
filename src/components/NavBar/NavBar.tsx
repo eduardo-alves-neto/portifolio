@@ -1,4 +1,3 @@
-import React from "react";
 import { useDarkMode } from "../../shared/contexts/ThemeContext";
 import { HiOutlineMoon, HiOutlineSun } from "react-icons/hi2";
 import ButtonIcon from "../Buttons/ButtonIcon";
