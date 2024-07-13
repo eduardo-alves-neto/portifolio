@@ -179,7 +179,7 @@ export const Sidebar = () => {
             >
               <FaLinkedinIn />
             </a>
-            <a href="https://github.com/eduardo-alves-neto">
+            <a href="https://github.com/eduardo-alves-neto" target="_blank">
               <FaGithub />
             </a>
           </div>

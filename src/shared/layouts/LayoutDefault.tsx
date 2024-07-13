@@ -18,12 +18,12 @@ export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
   return (
     <Container>
       <AnimatedCursor
-        innerSize={8}
-        outerSize={8}
-        color="193, 11, 111"
-        outerAlpha={0.2}
-        innerScale={0.7}
-        outerScale={5}
+        innerSize={12}
+        outerSize={32}
+        color="255, 165, 0"
+        outerAlpha={0.3}
+        innerScale={1.5}
+        outerScale={3}
       />
       {children}
     </Container>

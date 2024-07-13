@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Button from "../../components/Buttons/button";
 import { alternativeTexts } from "./initialValues";
 import { AnimatedText, Container, Content } from "./styled";
+import imageUrl from "../../assets/image3.png";
 
 export const Home = () => {
   const [actualText, setActualText] = useState(alternativeTexts[0]);
@@ -55,7 +56,7 @@ export const Home = () => {
       </Content>
       <Content width="40%">
         <div className="img">
-          <img src="/src/assets/image3.png" alt="Desenvolved" />
+          <img src={imageUrl} alt="developer" />
         </div>
       </Content>
     </Container>
