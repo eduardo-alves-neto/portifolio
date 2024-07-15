@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { useSideBar } from "../../shared/contexts/SideBarContext";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { IoIosArrowBack } from "react-icons/io";
 import ButtonIcon from "../Buttons/ButtonIcon";
 import { useDarkMode } from "../../shared/contexts/ThemeContext";
@@ -15,47 +13,49 @@ interface SidebarProps {
 }
 
 const SidebarContainer = styled.div<SidebarProps>`
+  height: 100dvh;
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  left: 0;
   top: 0;
-  width: 360px;
-  height: 100%;
-  background-color: var(--color-grey-100);
+  overflow-y: auto;
   overflow-x: hidden;
+  border-right: 2px solid var(--color-grey-200);
+  width: 300px;
+  background-color: var(--color-grey-100);
   transition: 0.3s;
   z-index: 12;
   @media (max-width: 780px) {
     left: ${(props) => (props.isOpen ? 0 : -360)}px;
   }
-  border-right: 2px solid var(--color-grey-200);
 `;
 
 const SidebarContent = styled.div`
-  padding: 1px;
+  height: 100dvh;
+  width: 100%;
   .top {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 250px;
     img {
       width: 100%;
     }
   }
   .body {
-    height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    padding-top: 3rem;
     flex-direction: row;
     .option-sideBar {
       width: 90%;
-      height: 99%;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      gap: 50px;
       a {
+        margin: 2rem;
         font-size: 1.5rem;
         font-weight: 500;
         color: var(--color-grey-800);
@@ -72,7 +72,6 @@ const SidebarContent = styled.div`
       @media (max-width: 780px) {
         display: block;
         width: 9%;
-        height: 100px;
         display: flex;
         padding: 10px;
         align-items: center;
@@ -86,30 +85,32 @@ const SidebarContent = styled.div`
     }
   }
   .footer {
+    height: 20%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    justify-content: end;
     flex-direction: column;
-    gap: 10px;
-    a {
-      margin: 1rem;
-      font-size: 1.5rem;
-      color: var(--color-grey-800);
-      transition: 0.3s;
-      &:hover {
-        color: var(--color-primary-500);
+    .content-footer {
+      a {
+        font-size: 1.5rem;
+        margin: 10px;
+        color: var(--color-grey-800);
+        transition: 0.3s;
+        &:hover {
+          color: var(--color-primary-500);
+        }
+        & svg {
+          width: 3rem;
+          height: 3rem;
+          color: var(--color-brand-300);
+        }
       }
-      & svg {
-        width: 3rem;
-        height: 3rem;
-        color: var(--color-brand-300);
+
+      p {
+        padding: 1rem;
+        font-size: 1.2rem;
+        color: var(--color-grey-800);
       }
-    }
-    p {
-      padding: 10px;
-      font-size: 1.2rem;
-      color: var(--color-grey-800);
     }
   }
 `;
@@ -121,6 +122,7 @@ export const Sidebar = () => {
     isDarkMode ? logoDarkMode : logoLightMode
   );
   const [imageOpacity, setImageOpacity] = useState(1);
+  const [sidebarHeight, setSidebarHeight] = useState(window.innerHeight + "px"); // Adiciona estado para altura
 
   useEffect(() => {
     setImageOpacity(0);
@@ -132,6 +134,18 @@ export const Sidebar = () => {
 
     return () => clearTimeout(timeoutId);
   }, [isDarkMode]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSidebarHeight(window.innerHeight + "px");
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <SidebarContainer isOpen={isSidebarOpen}>
       <SidebarContent>
@@ -166,7 +180,7 @@ export const Sidebar = () => {
         </div>
 
         <div className="footer">
-          <div>
+          <div className="content-footer">
             <a
               href="https://www.instagram.com/eduardo_batista_1/?hl=pt-br"
               target="_blank"
@@ -182,8 +196,6 @@ export const Sidebar = () => {
             <a href="https://github.com/eduardo-alves-neto" target="_blank">
               <FaGithub />
             </a>
-          </div>
-          <div>
             <p>{`@${new Date().getFullYear()} - Todos os direitos reservados. Desenvolvido por Eduardo neto`}</p>
           </div>
         </div>
