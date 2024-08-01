@@ -19,7 +19,7 @@ export const Home = () => {
 
   return (
     <Container>
-      <Content width="60%" height="600px">
+      <Content width="60%">
         <div>
           <h1>
             Oi, eu sou o <span>Eduardo!</span>
@@ -31,8 +31,9 @@ export const Home = () => {
         <div className="buttons-content">
           <Button size="large" variation="primary">
             <a
-              href="https://docs.google.com/document/d/1vYLG_41xy-8NGPmX9HeG441e_TIvuC6Y0kHZdbk6o9M/export?format=pdf"
+              href="https://hjpiprodssvxevkqrati.supabase.co/storage/v1/object/public/curriculo_file/Curriculo_Eduardo.pdf?t=2024-08-01T17%3A39%3A19.416Z"
               download={"Eduardo Martins - CV.pdf"}
+              target="_blank"
             >
               Baixar CV
             </a>
