@@ -122,7 +122,6 @@ export const Sidebar = () => {
     isDarkMode ? logoDarkMode : logoLightMode
   );
   const [imageOpacity, setImageOpacity] = useState(1);
-  const [sidebarHeight, setSidebarHeight] = useState(window.innerHeight + "px"); // Adiciona estado para altura
 
   useEffect(() => {
     setImageOpacity(0);
@@ -134,17 +133,6 @@ export const Sidebar = () => {
 
     return () => clearTimeout(timeoutId);
   }, [isDarkMode]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setSidebarHeight(window.innerHeight + "px");
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize();
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <SidebarContainer isOpen={isSidebarOpen}>
