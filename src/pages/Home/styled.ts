@@ -5,31 +5,6 @@ interface ContentProps {
   height?: string;
 }
 
-export const Container = styled.div`
-  display: flex;
-  padding-top: 90px;
-  padding-left: 90px;
-  flex-wrap: wrap-reverse;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  @media (max-width: 1044px) {
-    padding-left: 10px;
-    padding-top: 0px;
-    & > div {
-      width: 100% !important;
-    }
-    & > div {
-      h1 {
-        font-size: 3rem;
-      }
-    }
-    .img {
-      display: none;
-    }
-  }
-`;
-
 export const Content = styled.div<ContentProps>`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
@@ -51,10 +26,6 @@ export const Content = styled.div<ContentProps>`
   .img {
     width: 90%;
     height: auto;
-
-    img {
-      /* border: 3px solid black; */
-    }
   }
   .card-contact {
     border-left: 8px solid var(--color-yellow-700);
