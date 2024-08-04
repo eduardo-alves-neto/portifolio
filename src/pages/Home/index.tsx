@@ -33,7 +33,7 @@ export const Home = () => {
           <div className="buttons-content">
             <Button size="large" variation="primary">
               <a
-                href="https://hjpiprodssvxevkqrati.supabase.co/storage/v1/object/public/curriculo_file/Curriculo_Eduardo.pdf?t=2024-08-01T17%3A39%3A19.416Z"
+                href="https://hjpiprodssvxevkqrati.supabase.co/storage/v1/object/public/curriculo_file/Curriculo_Eduardo%20(1).pdf?t=2024-08-04T18%3A31%3A46.919Z"
                 download={"Eduardo Martins - CV.pdf"}
                 target="_blank"
               >
