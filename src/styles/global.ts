@@ -120,6 +120,9 @@ body {
   min-height: 100vh;
   line-height: 1.5;
   font-size: 1.6rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 input,

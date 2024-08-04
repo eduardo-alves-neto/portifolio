@@ -36,6 +36,7 @@ export const CardContent = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   img {
     width: 100%;
     height: 220px;

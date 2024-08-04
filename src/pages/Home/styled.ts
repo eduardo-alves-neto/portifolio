@@ -26,21 +26,23 @@ export const Content = styled.div<ContentProps>`
   .img {
     width: 90%;
     height: auto;
+    filter: drop-shadow(2px 1px 5px var(--color-grey-400));
   }
   .card-contact {
     border-left: 8px solid var(--color-yellow-700);
     border-radius: 8px;
     margin-top: 80px;
     padding: 10px;
-    padding-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
     p {
-      font-size: 1.7rem;
-      margin: 5px;
+      font-size: 1.5rem;
+      padding: 5px;
     }
     a {
-      font-size: 1.7rem;
+      font-size: 1.5rem;
       border-bottom: 1px solid var(--color-grey-400);
-      margin: 5px;
+      padding: 5px;
     }
   }
 `;
