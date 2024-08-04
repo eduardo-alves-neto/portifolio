@@ -1,3 +1,7 @@
+import imgWordWise from "../../../public/projectImgs/wordWise.png";
+import imgTMDB from "../../../public/projectImgs/TMDBfilmes.png";
+import imgAuthJWT from "../../../public/projectImgs/authJWT.png";
+
 interface ProjectDetailsProps {
   title: string;
   description: string;
@@ -12,7 +16,7 @@ export const ProjectDetails: ProjectDetailsProps[] = [
     title: "Word wise",
     description:
       "Este projeto é um sistema de gerenciamento de hospedagem em hoteis",
-    image: "../../public/projectImgs/wordWise.png",
+    image: imgWordWise,
     gitHublink: "https://github.com/eduardo-alves-neto/projectReact",
     link: "https://oasis-project-react.netlify.app/login",
   },
@@ -20,13 +24,14 @@ export const ProjectDetails: ProjectDetailsProps[] = [
     title: "TMDB Filmes",
     description:
       "Este projeto é um site para aluguel de filmes, desenvolvido utilizando Next.js ",
-    image: "../../public/projectImgs/TMDBfilmes.png",
+    image: imgTMDB,
     gitHublink: "https://github.com/eduardo-alves-neto/projectMAP",
   },
   {
     title: "AUTH JWT",
     description:
       "Este projeto é uma aplicação para autenticação de usuários utilizando JSON Web Tokens (JWT)",
-    image: "../../public/projectImgs/authJWT.png",
+    image: imgAuthJWT,
+    gitHublink: "https://github.com/eduardo-alves-neto/AUTH-JWT-BACK-END",
   },
 ];
