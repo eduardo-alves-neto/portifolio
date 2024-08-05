@@ -8,7 +8,6 @@ const Container = styled.div`
   @media (min-width: 1500px) {
     margin-left: 100px;
   }
-  box-sizing: border-box;
   display: "flex";
   flex-direction: "column";
   align-items: "center";

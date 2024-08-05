@@ -61,9 +61,7 @@ export const CardTitle = styled.h1<CardTitleProps>`
 
 export const CardDescription = styled.p<CardDescriptionProps>`
   color: ${(props) => (props.color ? `${props.color}` : " #FFFF")};
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 300px;
+  font-size: 1.5rem;
 `;
 
 export const CardFooter = styled.div`

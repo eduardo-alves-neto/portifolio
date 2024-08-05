@@ -24,7 +24,7 @@ export const Projects = () => {
                 style={{
                   position: "absolute",
                   padding: 8,
-                  maxWidth: 250,
+                  maxWidth: 300,
                 }}
               >
                 <CardTitle>{project.title}</CardTitle>
