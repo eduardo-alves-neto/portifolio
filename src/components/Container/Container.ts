@@ -7,6 +7,7 @@ interface ContainerProps {
   bd?: string;
   h?: string;
   p?: string;
+  jsContent?: string;
 }
 
 const Container = styled.div<ContainerProps>`
@@ -14,7 +15,7 @@ const Container = styled.div<ContainerProps>`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: ${(props) => props.jsContent};
   height: ${(props) => props.h};
   padding: ${(props) => props.p};
   margin-top: ${(props) => props.mt};
@@ -39,9 +40,10 @@ const Container = styled.div<ContainerProps>`
 `;
 
 Container.defaultProps = {
-  bgColor: "var(--color-grey-100)",
+  bgColor: "#FFFFFF",
   mt: "10px",
   h: "auto",
+  jsContent: "center",
 };
 
 export default Container;

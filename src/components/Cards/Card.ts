@@ -10,6 +10,8 @@ interface CardProps {
 
 interface CardTitleProps {
   color?: string;
+  fontSize?: string;
+  variant?: string;
 }
 interface CardDescriptionProps {
   color?: string;
@@ -36,7 +38,7 @@ export const CardContent = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  /* overflow: hidden; */
   img {
     width: 100%;
     height: 220px;
@@ -48,6 +50,7 @@ export const CardContent = styled.div`
       filter: brightness(0.5);
     }
   }
+  font-size: 1.5rem;
   @media (max-width: 1180px) {
     img {
       filter: brightness(0.5) !important;
@@ -56,12 +59,11 @@ export const CardContent = styled.div`
 `;
 
 export const CardTitle = styled.h1<CardTitleProps>`
-  color: ${(props) => (props.color ? `${props.color}` : " #FFFF")};
+  color: ${(props) => (props.color ? `var(${props.color})` : " #FFFF")};
 `;
 
 export const CardDescription = styled.p<CardDescriptionProps>`
-  color: ${(props) => (props.color ? `${props.color}` : " #FFFF")};
-  font-size: 1.5rem;
+  color: ${(props) => (props.color ? `var(${props.color})` : " #FFFF")};
 `;
 
 export const CardFooter = styled.div`

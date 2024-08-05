@@ -13,8 +13,8 @@ import ButtonIcon from "../../components/Buttons/ButtonIcon";
 
 export const Projects = () => {
   return (
-    <Container bgColor="#FFFFFF" mt="50px" mb="50px">
-      <Title>Projetos</Title>
+    <Container>
+      <Title mY="30px">Projetos</Title>
       {ProjectDetails.map((project) => {
         return (
           <Card>
