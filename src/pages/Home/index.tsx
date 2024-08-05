@@ -20,7 +20,7 @@ export const Home = () => {
 
   return (
     <>
-      <Container p="10px" mb="100px">
+      <Container  p="10px" mb="100px">
         <Content width="60%">
           <div>
             <h1>

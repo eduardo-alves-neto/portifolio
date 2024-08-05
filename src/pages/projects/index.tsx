@@ -13,7 +13,7 @@ import ButtonIcon from "../../components/Buttons/ButtonIcon";
 
 export const Projects = () => {
   return (
-    <Container>
+    <Container jsContent="start">
       <Title mY="30px">Projetos</Title>
       {ProjectDetails.map((project) => {
         return (

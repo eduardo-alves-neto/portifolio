@@ -9,7 +9,7 @@ import Card, {
 
 export const Experience = () => {
   return (
-    <Container jsContent="start" mb="200px" mt="200px">
+    <Container jsContent="start" mb="200px" mt="50px">
       <Title>Experiência</Title>
 
       {experienceList.map((experience, index) => {
