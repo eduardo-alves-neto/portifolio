@@ -20,7 +20,7 @@ export const Experience = () => {
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
-                  padding: 10,
+                  padding: 5,
                 }}
               >
                 <CardDescription color="--color-yellow-700">
@@ -32,7 +32,7 @@ export const Experience = () => {
               </div>
               <div
                 style={{
-                  padding: 10,
+                  padding: 5,
                   overflow: "auto",
                 }}
               >
@@ -42,11 +42,11 @@ export const Experience = () => {
                 <CardDescription
                   style={{
                     whiteSpace: "pre-line",
-                    border: "1px solid var(--color-grey-400)",
+                    // border: "1px solid var(--color-grey-400)",
                     borderRadius: "10px",
-                    padding: "10px",
+                    padding: "5px",
                     overflow: "auto",
-                   backgroundColor: "var(--color-grey-50)",
+                  //  backgroundColor: "var(--color-grey-50)",
                   }}
                   color="--color-grey-700"
                 >

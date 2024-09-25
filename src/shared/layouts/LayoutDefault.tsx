@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React from "react";
+import AnimatedCursor from "react-animated-cursor";
 
 const Container = styled.div`
   padding: 10px;
@@ -20,14 +21,14 @@ interface LayoutDefaultProps {
 export const LayoutDefault = ({ children }: LayoutDefaultProps) => {
   return (
     <Container>
-      {/* <AnimatedCursor
+      <AnimatedCursor
         innerSize={12}
         outerSize={32}
         color="255, 165, 0"
         outerAlpha={0.3}
         innerScale={1.5}
         outerScale={3}
-      /> */}
+      />
       {children}
     </Container>
   );

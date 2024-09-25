@@ -22,10 +22,10 @@ export const experienceList: experienceListProps[] = [
     date: "2023 - Atual",
     position: "Desenvolvedor Front-end",
     enterprise: "-Agro CRM",
-    description: `- Implementação de Telas através da Biblioteca React de acordo com as demandas;
-    - Consumo de Dados e Leitura de APIs pelo Swagger;
-    - Utilização de Metodologias ágeis como Kanban;
-    - Adição de Novas funcionalidades aos Sistemas Construídos;
-    - Manutenção de Código através de Boas Práticas de Código limpo.`,
+    description: `- Implementação de telas com React de acordo com as demandas;
+    - Leitura de APIs pelo Swagger;
+    - Utilização de metodologias ágeis como kanban;
+    - Adição de novas funcionalidades aos sistemas construídos;
+    - Manutenção de código.`,
   },
 ];
